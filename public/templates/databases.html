@@ -1,0 +1,12 @@
+<div class="text-center">
+	<h5 ng-if="authenticated">Welcome, {{currentUser.name}}</h5>
+	<button class="btn btn-danger" ng-click="logout()">Logout</button>
+	
+	<input type="text"  placeholder="Search" ng-change="searchDB()" ng-model="search">
+	<a ui-sref=".clientes" class="btn btn-primary">List</a>
+		<a ng-click="database('remolques')" class="btn btn-danger">Remolques</a>
+		<a ng-click="database('tractors')" class="btn btn-danger">Tractores</a>
+
+
+</div>
+<div ui-view name="{{fuente}}"></div>

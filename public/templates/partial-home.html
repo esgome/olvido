@@ -1,0 +1,11 @@
+<div class="text-center">
+	<h5 ng-if="authenticated">Welcome, {{currentUser.name}}</h5>
+	<button class="btn btn-danger" ng-click="logout()">Logout</button>
+	<p>This page demonstrates <span class="text-danger">nested</span> views.</p>
+	<input type="text"  placeholder="Search" ng-change="searchDB()" ng-model="search">
+	<a ui-sref=".list" class="btn btn-primary">Lista</a>
+	<a ui-sref=".calendar" class="btn btn-danger">Agenda</a>
+
+
+</div>
+<div ui-view></div>

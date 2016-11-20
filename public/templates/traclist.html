@@ -1,0 +1,45 @@
+<div ui-view="modalTrac" autoscroll="true"></div>
+<button ng-click="editarTractor({},'tractor')" class="btn btn-primary">
+  Registrar nuevo producto
+</button>
+
+<scrollable-table resizable>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th></th>
+        <th>          
+          <a href="#/" ng-click="sortType = 'title'; sortReverse = !sortReverse">
+            Status. 
+            <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </th>
+
+        <th>Inicia</th>
+        <th>tractor</th>
+
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr ng-repeat="m in dbTrac | orderBy:sortType:sortReverse | filter:search2 ">
+        <td>
+          <button class="btn btn-danger btn-xs pull-right" ng-click="retirarTractor(m)" type="button">Retirar</button>
+
+          <button ng-click="editarTractor(m,'tractor')" class="btn btn-default btn-xs pull-right" style="margin-right:10px;">Editar2</button>
+
+        </td>
+
+
+        <td> {{m.numEco}}   </td>
+
+        <!-- <input type="checkbox" ng-model="calendario.selected"/></td>-->
+        <td> {{m.placas}}   </td>
+
+        <td> {{m.poliza}}   </td>
+
+      </tr>
+    </tbody>
+  </table>
+</scrollable-table>

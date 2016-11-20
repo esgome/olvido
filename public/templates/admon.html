@@ -1,0 +1,414 @@
+
+
+<div class="Modal-box">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Administracion</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon  aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+
+  <div class="scroll">
+
+
+   <form ng-submit="updateCustomer()">
+
+
+
+    <div  layout-gt-xs="row"  ng-cloak>
+
+
+
+<div class="col-sm-6 " flex-gt-xs>
+<div class="cajas">
+<h3>Remitente:</h3>
+
+
+      <!-- origen -->
+      <div id="remitente-group" class="form-group" ng-class="{ 'has-error' : errorTractor }" >
+        <label>Nuevo Origen</label>
+
+
+
+
+<select ng-model="remitente" ng-options="x.origen for x in remitentes track by x.origen" data-ng-change="nuevoOrigen(remitente)">
+</select>
+
+       
+
+
+
+
+      </div>
+
+     <!-- origen -->
+      <div id="remitente-group" class="form-group" ng-class="{ 'has-error' : errorTractor }" >
+        <label>Origen</label>
+
+
+
+
+        <input type="text" name="remitenteorigen" class="form-control" ng-model="event.admin.remitente.origen" >
+        <span class="help-block" ng-show="errorRemitente">{{ errorRemitente}}</span>
+
+
+
+
+      </div>
+
+
+      <!-- destinatarioRFC -->
+      <div id="remitente-group" class="form-group" ng-class="{ 'has-error' : errorTractor }" >
+        <label>RFC</label>
+
+
+
+
+        <input  type="text" name="remitenteRFC" class="form-control" ng-model="event.admin.remitente.rfc">
+        <span class="help-block" ng-show="errorRemitente">{{ errorRemitente}}</span>
+
+
+
+
+      </div>
+      <!-- destinatarioRFC -->
+      <div id="remitente-group" class="form-group" ng-class="{ 'has-error' : errorTractor }" >
+        <label>Direccion</label>
+
+
+
+
+        <input type="text" name="remitenteRFC" class="form-control" ng-model="event.admin.remitente.direccion">
+        <span class="help-block" ng-show="errorRemitente">{{ errorRemitente}}</span>
+
+
+
+
+      </div>
+
+      <!-- remitenteRFC -->
+      <div id="remitente-group" class="form-group" ng-class="{ 'has-error' : errorremitente }" >
+        <label>Recoger En:</label>
+
+
+
+
+        <input  type="text" name="recogida" class="form-control" ng-model="event.admin.remitente.recoger">
+        <span class="help-block" ng-show="errorRemitente">{{ errorRemitente}}</span>
+
+
+</div>
+
+      </div>
+
+</div>
+
+<div class="col-sm-6 "  flex-gt-xs>
+
+<div class="cajas">
+<h3>Destinatario:</h3>
+      <!-- Destinatario -->
+      <div id="destinatario-group" class="form-group" ng-class="{ 'has-error' : errorTractor }" >
+        <label>Nombre</label>
+
+
+
+
+        <input ng-click="destinatario()" type="text" name="destinatario" class="form-control" ng-model="event.admin.destinatario.nombre">{{event.admin.destinatario.nombre}}
+        <span class="help-block" ng-show="errorTractor">{{ errorDestinatario}}</span>
+
+
+
+
+      </div>
+      <!-- destino -->
+      <div id="destinatario-group" class="form-group" ng-class="{ 'has-error' : errorTractor }" >
+        <label>Destino</label>
+
+
+
+
+        <input ng-click="destinatario()" type="text" name="destino" class="form-control" ng-model="event.admin.destinatario.destino">{{event.admin.destinatario.destino}}
+        <span class="help-block" ng-show="errorTractor">{{ errorDestinatario}}</span>
+
+
+
+
+      </div>
+      <!-- destinatarioRFC -->
+      <div id="destinatario-group" class="form-group" ng-class="{ 'has-error' : errorTractor }" >
+        <label>RFC</label>
+
+
+
+
+        <input ng-click="destinatario()" type="text" name="destinatarioRFC" class="form-control" ng-model="event.admin.destinatario.rfc">{{event.admin.destinatario.rfc}}
+        <span class="help-block" ng-show="errorTractor">{{ errorDestinatario}}</span>
+
+
+
+
+      </div>
+      <!-- destinatarioRFC -->
+      <div id="destinatario-group" class="form-group" ng-class="{ 'has-error' : errorTractor }" >
+        <label>Direccion</label>
+
+
+
+
+        <input ng-click="destinatario()" type="text" name="destinatarioRFC" class="form-control" ng-model="event.admin.destinatario.direccion">{{event.admin.destinatario.direccion}}
+        <span class="help-block" ng-show="errorTractor">{{ errorDestinatario}}</span>
+
+
+
+
+      </div>
+
+      <!-- destinatarioRFC -->
+      <div id="destinatario-group" class="form-group" ng-class="{ 'has-error' : errorTractor }" >
+        <label>Entrega En</label>
+
+
+
+
+        <input ng-click="destinatario()" type="text" name="entrega" class="form-control" ng-model="event.admin.destinatario.entrega">{{event.admin.destinatario.entrega}}
+        <span class="help-block" ng-show="errorTractor">{{ errorDestinatario}}</span>
+
+
+
+
+      </div>
+</div>
+</div>
+
+</div>
+<div >
+    <div  class="cajas" layout-gt-xs="row"  ng-cloak>
+
+      <!-- valor unitario -->
+      
+
+      <div id="vucc-group" class="form-group col-sm-4 "  flex-gt-xs ng-class="{ 'has-error' : errorRemitente }" >
+        <label>Valor Unitario</label>
+        <input ng-click="vucc()" type="text" name="vucc" class="form-control" ng-model="event.admin.vucc">{{event.admin.vucc}}
+        <span class="help-block" ng-show="errorVucc">{{ errorRemitente}}</span>
+
+
+
+
+      </div>
+
+
+
+      <!-- valor declarado -->
+
+      <div id="vucc-group" class="form-group col-sm-4 "  flex-gt-xs ng-class="{ 'has-error' : errorvalDec }" >
+        <label>Valor Declarado</label>
+        <input ng-click="valorDec()" type="text" name="valDec" class="form-control" ng-model="event.admin.valDec">{{event.admin.valDec}}
+        <span class="help-block" ng-show="errorvalDec">{{ errorvalDev}}</span>
+
+
+
+
+      </div>
+
+
+      <!-- fecha entrega -->
+
+      <div id="fechaEntrega-group" class="form-group col-sm-4 "  flex-gt-xs ng-class="{ 'has-error' : errorfechaEntrega }" >
+        <label>Fecha Entrega</label>
+        <input ng-click="valor()" type="text" name="fechaEntrega" class="form-control" ng-model="event.admin.fechaEntrega">{{event.admin.fechaEntrega}}
+        <span class="help-block" ng-show="errorfechaEntrega">{{ errorfechaEntrega}}</span>
+
+
+</div>
+
+      </div>
+
+</div>
+
+
+    <div  class="cajas" layout-gt-xs="row"  ng-cloak>
+
+      <!-- cantidad -->
+
+      <div id="cantidad-group" class="form-group col-sm-1 " ng-class="{ 'has-error' : errorCantidad }" >
+        <label>Cantidad</label>
+        <input ng-click="valor()" type="text" name="cantidad" class="form-control" ng-model="event.admin.cantidad">{{event.admin.cantidad}}
+        <span class="help-block" ng-show="errorCantidad">{{ errorCantidad}}</span>
+
+
+
+
+      </div>
+
+
+      <!-- unidades -->
+
+      <div id="unidades-group" class="form-group col-sm-1 " ng-class="{ 'has-error' : errorUnidades }" >
+        <label>Unidades</label>
+        <input ng-click="valor()" type="text" name="unidades" class="form-control" ng-model="event.admin.unidades">{{event.admin.unidades}}
+        <span class="help-block" ng-show="errorUnidades">{{ errorUnidades}}</span>
+
+
+
+
+      </div>
+
+
+
+      <!-- concepto -->
+
+      <div id="unidades-group" class="form-group col-sm-10 " ng-class="{ 'has-error' : errorConcepto }" >
+        <label>Concepto</label>
+        <input ng-click="valor()" type="text" name="concepto" class="form-control" ng-model="event.admin.concepto">{{event.admin.concepto}}
+        <span class="help-block" ng-show="errorConcepto">{{ errorConcepto}}</span>
+
+
+
+
+      </div>
+      </div>
+
+
+
+
+      <!-- Productos-->
+<div  class="cajas" layout-gt-xs="row"  ng-cloak>
+            <!-- prod cantidad-->
+<div class="col-sm-10">
+      <div class = "row">
+    
+<select ng-model="item" ng-options="x.nombre for x in remitente.productos">
+</select>
+<button type="button" ng-click="additem(item)">New Item</button>
+{{item.nombre}}
+</div>
+<div layout-gt-xs="row"  ng-cloak ng-repeat="producto in event.admin.remitente.productos track by $index" >
+
+
+      <div id="unidades-group" class="form-group col-sm-2" ng-class="{ 'has-error' : errorConcepto }" >
+        <label>Cantidad</label>
+        <input ng-click="valor()" type="text" name="concepto" class="form-control" ng-model="producto.cantidad">
+        <span class="help-block" ng-show="errorConcepto">{{ errorConcepto}}</span>
+      </div>
+
+
+      <div id="unidades-group" class="form-group col-sm-8" ng-class="{ 'has-error' : errorConcepto }" >
+        <label>Productos</label>
+        <input ng-click="valor()" type="text" name="concepto" class="form-control" ng-model="producto.nombre">
+        <span class="help-block" ng-show="errorConcepto">{{ errorConcepto}}</span>
+
+
+      </div>
+      <!-- prod unidad-->
+
+      <div id="unidades-group" class="form-group col-sm-1" ng-class="{ 'has-error' : errorConcepto }" >
+        <label>Peso</label>
+        <input ng-click="valor()" type="text" name="concepto" class="form-control" ng-model="producto.unidades.peso">
+        <span class="help-block" ng-show="errorConcepto">{{ errorConcepto}}</span>
+
+
+
+      </div>
+
+
+      <div id="unidades-group" class="form-group col-sm-1" ng-class="{ 'has-error' : errorConcepto }" >
+        <label>Volumen</label>
+        <input ng-click="valor()" type="text" name="concepto" class="form-control" ng-model="producto.unidades.volumen">
+        <span class="help-block" ng-show="errorConcepto">{{ errorConcepto}}</span>
+
+
+</div>
+      
+      </div>
+</div>
+<div class="col-sm-2 ">
+      <!-- importe Flete-->
+
+      <div id="importe-group" class="form-group" ng-class="{ 'has-error' : errorImporte }" >
+        <label>Flete</label>
+        <input ng-click="valor()" type="text" name="concepto" class="form-control" ng-model="event.admin.importe.flete">
+        <span class="help-block" ng-show="errorImporte">{{ errorImporte}}</span>
+
+
+
+      </div>
+
+
+      <!-- importe seguro-->
+
+      <div id="importe-group" class="form-group" ng-class="{ 'has-error' : errorImporte }" >
+        <label>Seguro</label>
+        <input ng-click="valor()" type="text" name="concepto" class="form-control" ng-model="event.admin.importe.seguro">
+        <span class="help-block" ng-show="errorImporte">{{ errorImporte}}</span>
+
+
+
+      </div>
+      <!-- importe maniobras-->
+
+      <div id="importe-group" class="form-group" ng-class="{ 'has-error' : errorImporte }" >
+        <label>Maniobras</label>
+        <input ng-click="valor()" type="text" name="concepto" class="form-control" ng-model="event.admin.importe.maniobras">
+        <span class="help-block" ng-show="errorImporte">{{ errorImporte}}</span>
+
+
+
+      </div>
+
+
+      <!-- importe autopistas-->
+
+      <div id="importe-group" class="form-group" ng-class="{ 'has-error' : errorImporte }" >
+        <label>Autopistas</label>
+        <input ng-click="valor()" type="text" name="concepto" class="form-control" ng-model="event.admin.importe.autopistas">
+        <span class="help-block" ng-show="errorImporte">{{ errorImporte}}</span>
+
+
+
+      </div>
+
+
+      <!-- importe otros-->
+
+      <div id="importe-group" class="form-group" ng-class="{ 'has-error' : errorImporte }" >
+        <label>otrosS</label>
+        <input ng-click="valor()" type="text" name="importeotros" class="form-control" ng-model="event.admin.importe.otros">
+        <span class="help-block" ng-show="errorImporte">{{ errorImporte}}</span>
+
+
+
+      </div>
+      <div><label>{{ event.admin.importe.otros -- event.admin.importe.flete -- event.admin.importe.maniobras --event.admin.importe.seguro | currency }}</label></div>
+
+</div>
+</div>
+
+      <!-- SUBMIT BUTTON -->
+
+    
+ 
+
+  <a ui-sref="home.crud" class="btn btn-danger">Cancelar</a>
+  <a ui-sref="home.crud" class="btn btn-primary">Guardar</a>
+  <div>
+
+  </div>
+</form>
+
+
+
+
+
+</div>
+
+
+
+
+</div>

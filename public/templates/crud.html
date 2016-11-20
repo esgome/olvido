@@ -1,0 +1,101 @@
+<h2 class="page-header">
+
+</h2>
+<div ui-view="modal" autoscroll="true"></div>
+<form ng-submit="updateCustomer()">
+   <div  ng-cloak>
+      <md-content layout-padding>
+
+       <div layout-gt-xs="row">
+          <div flex-gt-xs>
+            <h4>Fecha Inicial</h4>
+            <md-datepicker ng-model="event.start" md-placeholder="Fecha Inicial"></md-datepicker>
+        </div>
+        <div flex-gt-xs>
+            <h4>Fecha Final</h4>
+            <md-datepicker ng-model="event.end" md-placeholder="Fecha Final"
+            md-min-date="event.minDate2" ></md-datepicker>
+        </div>
+    </div>  
+</md-content>
+
+</div>
+
+<div>
+    <div  class="md-padding" id="popupContainer" ng-cloak>
+        <div id="title-group" class="form-group" ng-class="{ 'has-error' : errorStatus }">
+            <label>Status</label>
+
+            <input type="text" name="title" class="form-control" placeholder="etitle" ng-model="event.title">
+
+            <span class="help-block" ng-show="errorStatus">{{ errornumEco }}</span>
+        </div>
+
+        <!-- TractoCamion -->
+        <div id="tractor-group" class="form-group" ng-class="{ 'has-error' : errorTractor }" >
+            <label>Tractor</label>
+
+
+
+
+            <input ng-click="tractores()" type="text" name="tractor" class="form-control" ng-model="event.tractor.numEco">
+            <span class="help-block" ng-show="errorTractor">{{ errorTractor }}</span>
+
+
+
+            
+        </div>
+        <!-- Remolque 1 -->
+        <div id="rem1-group" class="form-group" ng-class="{ 'has-error' : errorRem1 }">
+            <label>Remolque 1</label>
+            <input type="text" name="rem1" class="form-control"  ng-model="event.rem1.numEco" ng-click="remolques()">
+            <span class="help-block" ng-show="errorRem1">{{ errorRem1 }}</span>
+        </div>
+        
+        <!-- Remolque 1 -->
+        <div id="rem2-group" class="form-group" ng-class="{ 'has-error' : errorRem1 }">
+            <label>Remolque 2</label>
+            <input type="text" name="rem2" class="form-control" placeholder="event.Remolque 2" ng-model="rem2.numEco" ng-click="remolques()">
+            <span class="help-block" ng-show="errorRem2">{{ errorRem2 }}</span>
+        </div>
+        
+        <!-- chofer -->
+        <div id="chofer-group" class="form-group" ng-class="{ 'has-error' : errorChofer }">
+            <label>Chofer</label>
+            <input type="text" name="chofer" class="form-control" placeholder="N/S" ng-model="event.chofer">
+            <span class="help-block" ng-show="errorChofer">{{ errorChofer }}</span>
+        </div>
+        <!-- Cliente -->
+        <div id="cliente-group" class="form-group" ng-class="{ 'has-error' : errorCliente }">
+            <label>Cliente</label>
+            <input type="text" name="cliente" class="form-control" placeholder="N/S" ng-model="event.cliente">
+            <span class="help-block" ng-show="errorCliente">{{ errorCliente }}</span>
+        </div>
+        
+        <!-- Viaticos -->
+        <div id="viaticos-group" class="form-group" ng-class="{ 'has-error' : errorViaticos }">
+            <label>Viaticos</label>
+            <input ng-click="viaticos()" type="text" name="viaticos" class="form-control" placeholder="numero de Poliza">
+            <span class="help-block" ng-show="errorViaticos">{{ errorViaticos }}</span>
+        </div>
+        
+        <!-- Admin -->
+        <div id="name-group" class="form-group" ng-class="{ 'has-error' : errorAdmin }">
+            <label>Administracion {{event.admin.remitente.nombre}} </label>
+            <input ng-click="admin()" type="text" name="remitente" class="form-control" ng-model="event.admin.remitente.origen">
+            <span class="help-block" ng-show="erroradmin">{{ erroradmin }}</span>
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+        <button class="btn btn-danger ">
+            <span class="glyphicon glyphicon-flash"></span> Submit!
+        </button>
+    </div>
+</div>
+
+<a ng-click="cancel()" class="btn btn-danger">Cancelar</a>
+<button type="submit" class="btn btn-primary">Guardar</button>
+<div>
+
+</div>
+</form>

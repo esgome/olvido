@@ -1,0 +1,32 @@
+[
+    {
+        "id": "57ec50a054167",
+        "numEco": "1",
+        "modelo": "2016",
+        "numSer": "45",
+        "placas": "677",
+        "numPol": "343",
+        "fechaPol": "878",
+        "mantenimiento": []
+    },
+    {
+        "id": "57ec50d211dbc",
+        "numEco": "2",
+        "modelo": "2012",
+        "numSer": "33",
+        "placas": "545",
+        "numPol": "342",
+        "fechaPol": "766",
+        "mantenimiento": []
+    },
+    {
+        "id": "57ec53185e054",
+        "numEco": "3",
+        "modelo": "34344",
+        "numSer": "3434",
+        "placas": "545",
+        "numPol": "343",
+        "fechaPol": "43",
+        "mantenimiento": []
+    }
+]

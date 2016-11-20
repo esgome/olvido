@@ -1,0 +1,46 @@
+[
+    {
+        "UID": "58096c7c41b42",
+        "nombre": "fvf",
+        "direccion": "vfv",
+        "rfc": "rfvr",
+        "recoger": "fvd",
+        "origen": "fvf",
+        "productos": [
+            {
+                "nombre": "fvdv",
+                "unidades": {
+                    "peso": "vfdv",
+                    "volumen": "vfdf"
+                },
+                "$$hashKey": "object:13"
+            }
+        ]
+    },
+    {
+        "UID": "58096d0f102cf",
+        "nombre": "vfr",
+        "direccion": "sd d d",
+        "rfc": "rfvrjynyj",
+        "recoger": "v fd f",
+        "origen": "vfr",
+        "productos": [
+            {
+                "nombre": "vvvv",
+                "unidades": {
+                    "peso": "555",
+                    "volumen": "ss"
+                },
+                "$$hashKey": "object:13"
+            },
+            {
+                "nombre": "frvr",
+                "unidades": {
+                    "peso": "dcfc",
+                    "volumen": "f f f"
+                },
+                "$$hashKey": "object:21"
+            }
+        ]
+    }
+]

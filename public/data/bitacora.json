@@ -1,0 +1,158 @@
+[
+    {
+        "id": "580ab874988f1",
+        "title": "rfe",
+        "start": "2016-10-04T00:00:00.000Z",
+        "end": "2016-10-05T00:00:00.000Z",
+        "minDate2": "2016-10-04T00:00:00.000Z",
+        "tractor": {
+            "id": "57ec525ea5eec",
+            "numEco": "3",
+            "modelo": "6532",
+            "numSer": "223",
+            "placas": "332",
+            "numPol": "555",
+            "fechaPol": "34",
+            "mantenimiento": []
+        },
+        "stick": true,
+        "admin": {
+            "remitente": {
+                "productos": [
+                    {
+                        "nombre": "frvr",
+                        "unidades": {
+                            "peso": "dcfc",
+                            "volumen": "f f f"
+                        },
+                        "cantidad": "3"
+                    },
+                    {
+                        "nombre": "vvvv",
+                        "unidades": {
+                            "peso": "555",
+                            "volumen": "ss"
+                        },
+                        "cantidad": "5"
+                    },
+                    {
+                        "nombre": "frvr",
+                        "unidades": {
+                            "peso": "dcfc",
+                            "volumen": "f f f"
+                        },
+                        "cantidad": "3"
+                    },
+                    {
+                        "nombre": "fvdv",
+                        "unidades": {
+                            "peso": "vfdv",
+                            "volumen": "vfdf"
+                        },
+                        "cantidad": "5"
+                    }
+                ],
+                "origen": "fvf",
+                "rfc": "fvd",
+                "direccion": "vfr",
+                "recoger": "rv"
+            },
+            "destinatario": ""
+        },
+        "_id": 1,
+        "className": [],
+        "allDay": false,
+        "_allDay": false,
+        "_start": "2016-10-04T00:00:00.000Z",
+        "_end": "2016-10-05T00:00:00.000Z"
+    },
+    {
+        "id": "580bbadd71c21",
+        "title": "trtr",
+        "start": "2016-10-05T00:00:00.000Z",
+        "end": "2016-10-06T00:00:00.000Z",
+        "minDate2": "2016-10-05T00:00:00.000Z",
+        "tractor": {
+            "id": "57ec525ea5eec",
+            "numEco": "3",
+            "modelo": "6532",
+            "numSer": "223",
+            "placas": "332",
+            "numPol": "555",
+            "fechaPol": "34",
+            "mantenimiento": []
+        },
+        "stick": true,
+        "admin": {
+            "remitente": {
+                "UID": "58096d0f102cf",
+                "nombre": "vfr",
+                "direccion": "sd d d",
+                "rfc": "rfvrjynyj",
+                "recoger": "v fd f",
+                "origen": "vfr",
+                "productos": [
+                    {
+                        "nombre": "frvr",
+                        "unidades": {
+                            "peso": "dcfc",
+                            "volumen": "f f f"
+                        },
+                        "cantidad": "3"
+                    },
+                    {
+                        "nombre": "frvr",
+                        "unidades": {
+                            "peso": "dcfc",
+                            "volumen": "f f f"
+                        },
+                        "cantidad": "2"
+                    },
+                    {
+                        "nombre": "frvr",
+                        "unidades": {
+                            "peso": "dcfc",
+                            "volumen": "f f f"
+                        },
+                        "cantidad": "1"
+                    },
+                    {
+                        "nombre": "frvr",
+                        "unidades": {
+                            "peso": "dcfc",
+                            "volumen": "f f f"
+                        },
+                        "cantidad": "1"
+                    },
+                    {
+                        "nombre": "frvr",
+                        "unidades": {
+                            "peso": "dcfc",
+                            "volumen": "f f f"
+                        },
+                        "cantidad": "7"
+                    }
+                ]
+            },
+            "destinatario": ""
+        },
+        "rem1": {
+            "numEco": "df"
+        },
+        "_id": 1,
+        "className": [],
+        "allDay": false,
+        "_allDay": false,
+        "_start": "2016-10-05T00:00:00.000Z",
+        "_end": "2016-10-06T00:00:00.000Z",
+        "viaticos": [
+            {
+                "concepto": "Diesel",
+                "cantidad": "",
+                "rederencia": "",
+                "fecha": "",
+                "referencia": "56"
+            }
+        ]
+    }
+]

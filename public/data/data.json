@@ -1,0 +1,72 @@
+[
+    {
+        "id": "57ec5233598a8",
+        "numEco": "1",
+        "modelo": "8945",
+        "numSer": "343",
+        "placas": "45455",
+        "numPol": "343",
+        "fechaPol": "345",
+        "mantenimiento": []
+    },
+    {
+        "id": "57ec5249714f4",
+        "numEco": "2",
+        "modelo": "656",
+        "numSer": "34323",
+        "placas": "23",
+        "numPol": "344",
+        "fechaPol": "34",
+        "mantenimiento": []
+    },
+    {
+        "id": "57ec525ea5eec",
+        "numEco": "3",
+        "modelo": "6532",
+        "numSer": "223",
+        "placas": "332",
+        "numPol": "555",
+        "fechaPol": "34",
+        "mantenimiento": []
+    },
+    {
+        "UID": "580655edcc11a",
+        "numEco": "4",
+        "modelo": "45",
+        "numSer": "ere",
+        "placas": "343",
+        "numPol": "234",
+        "fechaPol": "243",
+        "mantenimiento": []
+    },
+    {
+        "UID": "580655f81d8c0",
+        "numEco": "5",
+        "modelo": "45",
+        "numSer": "ere",
+        "placas": "343",
+        "numPol": "234",
+        "fechaPol": "243",
+        "mantenimiento": []
+    },
+    {
+        "UID": "580655fc9d51d",
+        "numEco": "6",
+        "modelo": "45",
+        "numSer": "ere",
+        "placas": "343",
+        "numPol": "234",
+        "fechaPol": "243",
+        "mantenimiento": []
+    },
+    {
+        "UID": "5806560571c07",
+        "numEco": "7",
+        "modelo": "45",
+        "numSer": "ere",
+        "placas": "343",
+        "numPol": "234",
+        "fechaPol": "243",
+        "mantenimiento": []
+    }
+]
