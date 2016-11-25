@@ -77,7 +77,13 @@ class AuthenticateController extends Controller
         }
 
         // the token is valid and we have found the user via the sub claim
-        return response()->json(compact('user'));
+         return response()->json([
+            "user" => $user,
+            "owner" => $user->hasRole('owner'),
+            "admin" => $user->hasRole('admin'),
+            "createUser" => $user->can('create-users'),
+            "list" => $user->can('list')
+        ]);
     }
 
     public function createRole(Request $request){
@@ -112,8 +118,8 @@ class AuthenticateController extends Controller
             "user" => $user,
             "owner" => $user->hasRole('owner'),
             "admin" => $user->hasRole('admin'),
-            "editUser" => $user->can('edit-user'),
-            "listUsers" => $user->can('list-users')
+            "createUser" => $user->can('create-user'),
+            "list" => $user->can('list')
         ]);
     }
 

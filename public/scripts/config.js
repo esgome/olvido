@@ -49,7 +49,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $authProvider, $ht
         return {
 
           responseError: function(rejection) {
-
+            console.log('rejection', rejection);
             // Need to use $injector.get to bring in $state or else we get
             // a circular dependency error
             var $state = $injector.get('$state');
@@ -57,7 +57,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider, $authProvider, $ht
             // Instead of checking for a status code of 400 which might be used
             // for other reasons in Laravel, we check for the specific rejection
             // reasons to tell us if we need to redirect to the login state
-            var rejectionReasons = ['token_not_provided', 'token_expired', 'token_absent', 'token_invalid'];
+            var rejectionReasons = ['token_not_provided', 'token_expired', 'token_absent', 'token_invalid','invalid_credentials'];
 
             // Loop through each rejection reason and redirect to the login
             // state if one is encountered

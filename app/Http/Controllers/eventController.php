@@ -24,7 +24,15 @@ class eventController extends Controller
      */
     public function index()
     {
-        return Response::json(Evento::get());
+
+$start = new Carbon('first day of this month');
+$end = new Carbon('last day of this month');
+  $event=Evento::whereBetween('start',[$start,$end])->orwhereBetween('end',[$start,$end])->get();
+
+
+
+
+        return Response::json($event);
     }
     
     /**
@@ -41,7 +49,10 @@ class eventController extends Controller
 
   
 $data = Request::json()->all();
-
+$start=Carbon::parse($data['start']);
+$end =Carbon::parse($data['end']);
+$data['start'] = $start;
+$data['end']= $end;
 
 if(isset($data['_id'])){
 

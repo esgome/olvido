@@ -3,13 +3,22 @@
 namespace App\Http\Controllers;
 use Response;
 use \Carbon\Carbon;
+use \App\Role;
+use \App\Permission;
 
 use App\Remolque;
 use Request;
+use Entrust;
 class remolqueController extends Controller
 {
 
-
+   public function __construct()
+    {
+      
+        $this->middleware('ability:admin,list', ['only' => ['index']]);
+        $this->middleware('ability:admin,create-users',   ['only' => ['store']]);
+        $this->middleware('ability:admin,create-users',   ['only' => ['destroy']]);
+    }
     /**
      * Send back all comments as JSON
      *
@@ -17,7 +26,12 @@ class remolqueController extends Controller
      */
     public function index()
     {
+
+        if(Entrust::can('create-users')){
         return Response::json(Remolque::get());
+    } else {
+        return Response::json([]);
+    }
     }
     
     /**

@@ -34,10 +34,10 @@
         </thead>
         <tbody>
 
-        <tr ng-repeat="x in remBusy| orderBy:sortType:sortReverse | filter:search2 ">
+        <tr ng-repeat="x in remBusy| orderBy:sortType:sortReverse ">
             <td>
-              <button ng-click="answer(x)" class="btn btn-default btn-xs">
-               TC {{x.numEco}}
+              <button ng-click="answerrem(x)" class="btn btn-default btn-xs">
+               REM {{x.numEco}}
              </button> </td>
 
              <td ng-repeat="ev in x.event"  | limitTo:3> {{ev.title}}</td>

@@ -64,9 +64,8 @@ Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
     Route::resource('eventos', 'eventController', 
         array('only' => array('index', 'store', 'destroy')));
 
-        Route::resource('remolques', 'remolqueController', 
-        array('only' => array('index', 'store', 'destroy')));
-Route::post('user-detail',['uses'=> 'AuthenticateController@checkRoles']);
+        Route::resource('remolques', 'remolqueController');
+Route::post('user-detail',['middleware' => ['ability:|,create-users'],'uses'=> 'AuthenticateController@checkRoles']);
 
 });
 

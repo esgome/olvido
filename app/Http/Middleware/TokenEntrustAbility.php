@@ -34,3 +34,4 @@ class TokenEntrustAbility extends BaseMiddleware
         $this->events->fire('tymon.jwt.valid', $user);
         return $next($request);
     }
+}

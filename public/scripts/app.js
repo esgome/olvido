@@ -379,11 +379,11 @@ $scope.event.viaticos.push(temp)
     $scope.tracBusy=[]; 
     angular.forEach($scope.dbTrac,function(trac,key){
 
-      var temp = {id: trac.id,numEco:trac.numEco,event:[]}
+      var temp = {_id: trac._id,numEco:trac.numEco,event:[]}
 
 
       angular.forEach($scope.events,function(fecha, key2){
-        if (fecha.tractor.id == trac.id) {
+        if (fecha.tractor._id == trac._id) {
 
 
 
@@ -401,7 +401,7 @@ $scope.event.viaticos.push(temp)
 
       });
 
-      $scope.tracBusy.push(temp)
+      $scope.tracBusy.push(temp);
       if ($scope.tracBusy[key].event.length > 0)
         console.log('busy',$scope.tracBusy[key].event[0].title);
 
@@ -410,42 +410,71 @@ $scope.event.viaticos.push(temp)
 
 
 
-  function dbrembusy(){
-
+  function dbrembusy(rem){
+$scope.rem=rem
    Database.get('remolques').then(function(response){
               console.log('response 2',response)
-$scope.dbRem=response
+$scope.dbRem=response.data
 
       
 
     $scope.remBusy=[]; 
     angular.forEach($scope.dbRem,function(trac,key){
 
-      var temp = {id: trac.id,numEco:trac.numEco,event:[]}
+      var temp = {_id: trac._id,numEco:trac.numEco,event:[]}
+      console.log('rem',trac)
 
 
       angular.forEach($scope.events,function(fecha, key2){
-        if (fecha.tractor.id == trac.id) {
+          console.log('events fin',fecha)
 
 
+        if (angular.isDefined(fecha.rem1)){
+          console.log('si busy',fecha.end)
+
+                if (fecha.rem1._id == trac._id) {
+
+console.log('si busy',fecha.end,$scope.event.start)
+
+
+          if ((new Date(fecha.end) >= $scope.event.start  && new Date(fecha.end) <= $scope.event.end ) || (new Date(fecha.start) >= $scope.event.start  && new Date(fecha.start) <= $scope.event.end )) {
+console.log('super',fecha.end,$scope.event.start)
+
+            temp.busy = true;
+
+          } 
+            temp.event.push({title: fecha.title,start: fecha.start,end: fecha.end});
+
+
+
+
+        };
+
+
+        } 
+        if (angular.isDefined(fecha.rem2)){
+          console.log('si busy',fecha.end)
+
+                if (fecha.rem2._id == trac._id) {
+
+console.log('si busy',fecha.end)
 
 
           if ((new Date(fecha.end) >= $scope.event.start  && new Date(fecha.end) <= $scope.event.end ) || (new Date(fecha.start) >= $scope.event.start  && new Date(fecha.start) <= $scope.event.end )) {
 
-            temp.busy = true
-            temp.event.push({title: fecha.title,start: fecha.start,end: fecha.end})
+            temp.busy = true;
+            temp.event.push({title: fecha.title,start: fecha.start,end: fecha.end});
 
-          } else {
+          } };
 
-          };
+
         } 
-
 
       });
 
       $scope.remBusy.push(temp)
-      if ($scope.remBusy[key].event.length > 0)
-        console.log('busy',$scope.remBusy[key].event[0].title);
+
+     
     });
 
 
@@ -459,8 +488,7 @@ $scope.dbRem=response
 
 angular.forEach($scope.dbTrac,function(trac,key){
 
-if(trac.UID == m.UID){
-
+if(trac._id == m._id){
   $scope.event.tractor=trac
 }
 
@@ -484,9 +512,17 @@ if(trac.UID == m.UID){
 
 angular.forEach($scope.dbRem,function(trac,key){
 
-if(trac.UID == m.UID){
+if(trac._id == m._id){
+
+  if ($scope.rem == '1'){
 
   $scope.event.rem1=trac
+
+} else {
+  $scope.event.rem2=trac
+
+
+}
 }
 
 });
@@ -542,20 +578,12 @@ routerApp.controller('AuthController',[ '$auth','$state','$http' ,'$rootScope' ,
                 password: vm.password
             }
 
-            $auth.login(credentials).then(function() {
+            $auth.login(credentials).then(function(response) {
+console.log('response 0',response)
 
                 // Return an $http request for the now authenticated
                 // user so that we can flatten the promise chain
-                return $http.get('api/authenticate/user');
-
-            // Handle errors
-            }, function(error) {
-                vm.loginError = true;
-                vm.loginErrorText = error.data.error;
-
-            // Because we returned the $http.get request in the $auth.login
-            // promise, we can chain the next promise to the end here
-            }).then(function(response) {
+                return $http.get('api/authenticate/user').then(function(response) {
 console.log('response',response)
                 // Stringify the returned data to prepare it
                 // to go into local storage
@@ -577,6 +605,19 @@ console.log('response',response)
                 // the users state to view the data
                 $state.go('home');
             });
+
+            // Handle errors
+            }, function(error) {
+              
+
+                vm.loginError = true;
+                vm.loginErrorText = error.data.error;
+                console.log('response 1',vm.loginErrorText)
+                $state.go('home');
+
+            // Because we returned the $http.get request in the $auth.login
+            // promise, we can chain the next promise to the end here
+            })
         }
     }]);
 

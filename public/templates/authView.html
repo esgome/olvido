@@ -3,6 +3,7 @@
 <div class="col-sm-4 col-sm-offset-4">
     <div class="well">
         <h3>Login</h3>
+        <span ng-show="auth.loginError">{{auth.loginErrorText}}</span>
         <form>
             <div class="form-group">
                 <input type="email" class="form-control" placeholder="Email" ng-model="auth.email">

@@ -48,14 +48,14 @@
         <!-- Remolque 1 -->
         <div id="rem1-group" class="form-group" ng-class="{ 'has-error' : errorRem1 }">
             <label>Remolque 1</label>
-            <input type="text" name="rem1" class="form-control"  ng-model="event.rem1.numEco" ng-click="remolques()">
+            <input type="text" name="rem1" class="form-control"  ng-model="event.rem1.numEco" ng-click="remolques('1')">
             <span class="help-block" ng-show="errorRem1">{{ errorRem1 }}</span>
         </div>
         
         <!-- Remolque 1 -->
         <div id="rem2-group" class="form-group" ng-class="{ 'has-error' : errorRem1 }">
             <label>Remolque 2</label>
-            <input type="text" name="rem2" class="form-control" placeholder="event.Remolque 2" ng-model="rem2.numEco" ng-click="remolques()">
+            <input type="text" name="rem2" class="form-control" placeholder="event.Remolque 2" ng-model="event.rem2.numEco" ng-click="remolques('2')">
             <span class="help-block" ng-show="errorRem2">{{ errorRem2 }}</span>
         </div>
         
